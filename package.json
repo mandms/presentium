@@ -1,0 +1,7 @@
+{
+  "name": "presentium",
+  "packageManager": "yarn@3.6.1",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

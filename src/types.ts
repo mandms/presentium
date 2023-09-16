@@ -2,6 +2,8 @@ type Block = {
     id: string
     width: number
     height: number
+    x: number
+    y: number
 }
 
 type Presentation = {

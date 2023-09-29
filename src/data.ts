@@ -1,45 +1,134 @@
-import {Presentation, ShapeType, Char, Workspace, Shape, Image} from "./types";
+import {Action, Export, History, Image, Item, Presentation, Shape, ShapeType, Slide, Text} from "./types";
 
 const shape: Shape = {
-    backgroundColor: "#fff",
+    Change() {
+        return undefined
+    },
+    Copy() {
+        return undefined
+    },
+    Delete() {
+        return undefined
+    },
+    Paste() {
+        return undefined
+    },
+    backgroundColor: "#000",
+    borderColor: "#000",
+    height: 0,
+    id: "2",
     type: ShapeType.Circle,
-    width: 200,
-    height: 300,
-    id: "2"
+    width: 0,
+    x: 0,
+    y: 0
 }
 
 const img: Image = {
-    id: "3",
-    path: "http://",
-    width: 200,
-    height: 300
+    Change() {
+        return undefined
+    },
+    Copy() {
+        return undefined
+    },
+    Delete() {
+        return undefined
+    },
+    Paste() {
+        return undefined
+    },
+    height: 0,
+    id: "1",
+    path: "/sasd/asd.jpg",
+    width: 0,
+    x: 0,
+    y: 0
 }
 
-const text: Char[] = [{
-    id: "4",
-    height: 10,
-    width: 200,
-    color: "#000",
-    backgroundColor: "#fff",
+const text: Text = {
+    Change(): Item {
+        return undefined;
+    },
+    Copy(): void {
+    },
+    Delete(): void {
+    },
+    Paste(): Item {
+        return undefined;
+    },
+    backgroundColor: "#000",
     bold: false,
+    color: "#fff",
+    fonSize: 0,
     fontFamily: "sans-serif",
-    fontSize: 30,
-    italic: false
-}]
+    height: 0,
+    id: "1",
+    italic: false,
+    width: 0,
+    x: 0,
+    y: 0
+}
+
+const slide: Slide = {
+    background: "#fff",
+    items: [
+        text,
+        shape,
+        img
+    ],
+    slideNumber: 1,
+    ChangeBackground() {
+    },
+    CreateItem(): Item {
+        return undefined;
+    }
+}
 
 const presentation: Presentation = {
     name: "",
     slides: [
-        {
-            background: img,
-            shapes: [
-                shape,
-            ],
-            text
-        }
-    ]
+        slide
+    ],
+    Create() {
+    },
+    CreateSlide(): Slide {
+        return undefined;
+    },
+    DeleteSlide(id: number): void {
+    },
+    GetCurrentSlide(id: number): Slide {
+        return undefined;
+    },
+    Open() {
+    },
+    Preview() {
+    },
+    Rename() {
+    }
 }
 
-const workspace: Workspace = {
-    background: "#fff"
+const action: Action = {
+    actionNumber: 1,
+    presentationCopy: presentation
+}
+
+const history: History = {
+    presentation: presentation,
+    actions: [
+        action,
+    ],
+    CreateAction(): Action {
+        return undefined;
+    },
+    NextAction(): Presentation {
+        return undefined;
+    },
+    PrevAction(): Presentation {
+        return undefined;
+    }
+}
+
+const exportPresentation: Export = {
+    presentation: presentation,
+    toPDF() {
+    }
 }

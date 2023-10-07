@@ -4,10 +4,6 @@ type Item = {
   height: number
   x: number
   y: number
-  Copy(): void
-  Paste(): Item
-  Change(): Item
-  Delete(): void
 }
 
 type Text = Item & {
@@ -39,38 +35,24 @@ type Slide = {
   slideNumber: number
   background: Image | string
   items: Item[]
-  CreateItem(): Item
-  ChangeBackground()
 }
 
 type Presentation = {
   name: string
   slides: Slide[]
-  Create()
-  Rename()
-  Open()
-  CreateSlide(): Slide
-  Preview()
-  GetCurrentSlide(id: number): Slide
-  DeleteSlide(id: number): void
 }
 
 type Export = {
   presentation: Presentation
-  toPDF()
 }
 
 type Action = {
   presentationCopy: Presentation
-  actionNumber: number
 }
 
 type History = {
   presentation: Presentation
   actions: Action[]
-  PrevAction(): Presentation
-  NextAction(): Presentation
-  CreateAction(): Action
 }
 
 export {
